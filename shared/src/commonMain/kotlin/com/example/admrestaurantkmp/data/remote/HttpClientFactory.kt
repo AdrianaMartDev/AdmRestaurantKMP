@@ -1,5 +1,6 @@
 package com.example.admrestaurantkmp.data.remote
 
+import com.example.admrestaurantkmp.Constants
 import io.ktor.client.*
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.*
@@ -22,6 +23,9 @@ fun createHttpClient(engine: HttpClientEngine): HttpClient {
         install(HttpTimeout) {
             requestTimeoutMillis = 30_000
             connectTimeoutMillis = 30_000
+        }
+        defaultRequest {
+            url(Constants.BASE_URL)
         }
     }
 }
