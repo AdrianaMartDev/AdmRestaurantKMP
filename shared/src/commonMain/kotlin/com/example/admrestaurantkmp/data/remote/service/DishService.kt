@@ -7,6 +7,7 @@ import io.ktor.client.call.body
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.post
+import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 
 class DishService(private val client: HttpClient) {
@@ -21,8 +22,8 @@ class DishService(private val client: HttpClient) {
         }.body()
     }
 
-    suspend fun updateDish(dish: DataDish): ResponseDish {
-        return client.post("/platillos/update") {
+    suspend fun updateDish(nameDish: String, dish: DataDish): ResponseDish {
+        return client.put("/platillos/update/$nameDish") {
             setBody(dish)
         }.body()
     }
