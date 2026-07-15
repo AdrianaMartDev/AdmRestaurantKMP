@@ -1,6 +1,6 @@
 package com.example.admrestaurantkmp.data.remote
 
-import com.example.admrestaurantkmp.Constants
+import com.example.admrestaurantkmp.utils.Constants
 import io.ktor.client.*
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.*
@@ -11,6 +11,7 @@ import kotlinx.serialization.json.Json
 
 fun createHttpClient(engine: HttpClientEngine): HttpClient {
     return HttpClient(engine) {
+        expectSuccess = true
         install(ContentNegotiation) {
             json(Json {
                 ignoreUnknownKeys = true
