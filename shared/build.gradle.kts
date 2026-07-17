@@ -39,6 +39,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.okhttp.client)
+            implementation(libs.koin.android)
         }
         iosMain.dependencies {
             implementation(libs.client.darwin)
@@ -58,6 +59,8 @@ kotlin {
             implementation(libs.ktor.client.negotiation)
             implementation(libs.ktor.client.json)
             implementation(libs.ktor.client.login)
+
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
